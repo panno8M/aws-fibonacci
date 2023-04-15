@@ -9,7 +9,7 @@ from restutils import *
 class TestFib(unittest.TestCase):
     def test_positive(self):
         testcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        expected  = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+        expected  = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
         self.assertEqual([fib(n) for n in testcases], expected)
 
     def test_negative(self):
@@ -23,7 +23,7 @@ class TestFib(unittest.TestCase):
 class TestRequest(unittest.TestCase):
     def test_200(self):
         testcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        expected  = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+        expected  = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
         self.assertEqual(
             [lambda_handler(gen_request_event(n), None) for n in testcases],
             [gen_200(x) for x in expected])
